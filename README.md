@@ -15,6 +15,10 @@ WARNING: This only works for PC/Mac users. Mobile devices can't run this properl
 Divclick is still in Alpha, so expect lots of bugs and unfinished features.
 
 ## Releases
-The Alpha versions were private and were only shown to people I know.]
+The Alpha versions were private and were only shown to people I know.
 
 Alpha v1: First Alpha. TODO: Fix Dimensions, square disappearing, and visual bugs.
+
+Alpha v2: Fixed visual bugs and added license
+
+Alpha v3: The target square no longer randomly disappears (including all dimension settings.) Dimensions other than 10x10 are still buggy though.

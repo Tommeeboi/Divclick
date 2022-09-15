@@ -152,13 +152,21 @@ function playEvent() {
         rng = Math.floor(Math.random() * 4);
 
         if (rng === 0) {
-            squareSelector += 1;
+            if (squareSelector <= j - 1) {
+                squareSelector += 1;
+            }
         } else if (rng === 1) {
-            squareSelector -= 1;
+            if (squareSelector >= 2) {
+                squareSelector -= 1;
+            }
         } else if (rng === 2) {
-            squareSelector += 10;
+            if (squareSelector <= j - 11) {
+                squareSelector += 10;
+            }
         } else if (rng === 3) {
-            squareSelector -= 10;
+            if (squareSelector >= 11) {
+                squareSelector -= 10;
+            }
         } else {
             alert("Broken.");
         }
@@ -179,7 +187,7 @@ function playEvent() {
     if (targetColour === null) {
         alert("Click Submit First! (Or Submit & Play)");
     } else {
-        squareSelector = Math.floor(Math.random() * 100) + 1;
+        squareSelector = Math.floor(Math.random() * j) + 1;
         target = document.getElementById(`u${squareSelector}`);
 
         target.style.backgroundColor = correctColour;
