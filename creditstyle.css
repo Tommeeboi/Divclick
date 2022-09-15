@@ -1,0 +1,94 @@
+/* 100% not copied from indexstyle.css
+i know you can use one css file for multiple html files */
+
+body {
+    font-family: 'Roboto Mono', sans-serif;
+    background-color: hsl(0, 0%, 35%);
+}
+
+.centre {
+    text-align: center;
+}
+
+.superCentre {
+    margin: 0px auto;
+}
+
+.ultraCentre {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.omegaCentre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buld {
+    font-weight: 800;
+}
+
+.bold {
+    font-weight: 650;
+}
+
+.bigg {
+    font-size: 100px;
+}
+
+.big {
+    font-size: 75px;
+}
+
+.kindaBig {
+    font-size: 50px;
+}
+
+.kindaBiggish {
+    font-size: 35px;
+}
+
+.small {
+    font-size: 25px;
+}
+
+.iconBar {
+    margin-top: 30px;
+}
+
+.iconBar img {
+    height: 75px;
+    width: auto;
+    margin: 0px 10px;
+}
+
+.credit {
+    font-size: 50px;
+}
+
+.credit span {
+    font-size: 40px;
+}
+
+.credit p {
+    font-size: 25px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.claustrophobic {
+    margin-top: 50px;
+}
+
+a:visited {
+    color: hsl(300, 100%, 40%);
+}
+
+fudge {
+    display: block;
+    opacity: 0.5;
+    cursor: help;
+}

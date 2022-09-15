@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divclick - Credits</title>
+    <link rel="stylesheet" href="creditstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/text.png">
+    <link rel="apple-touch-icon" href="assets/text.png">
+</head>
+<body>
+    <header>
+        <div class="iconBar centre">
+            <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
+            <a href="/"><img src="assets/house.png" alt="Home" title="I actually edited this photo in Paint 3D :D" loading="lazy"></a>
+            <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy"></a>
+        </div>
+        <div class="bigg centre buld" title="it's called divclick because you click divs">Credits</div>
+        <div class="kindaBig centre bold" id="randum">((RANDOM))</div>
+    </header>
+    <br>
+    <main>
+        <div class="credit centre claustrophobic bold">
+            Programming:
+            <br>
+            <span>Tommeeboi</span>
+            <p>
+                Github: <a href="https://github.com/Tommeeboi" target="_blank" rel="noopener">https://github.com/Tommeeboi</a>
+            </p>
+        </div>
+        <div class="credit centre claustrophobic bold">
+            Images:
+            <br>
+            <p>
+                Terry Hornburg (House Icon): <a href="https://www.pinterest.co.uk/pin/208221182749490371/" target="_blank" rel="noopener">https://www.pinterest.co.uk/pin/208221182749490371/</a>
+                <br>
+                Cole Bemis (Text Icon): <a href="https://icons-for-free.com/text+icon-1320166904007805068/" target="_blank" rel="noopener">https://icons-for-free.com/text+icon-1320166904007805068/</a>
+                <br>
+                <fudge title="Unused icon. You can find it in the files">Afshin T2Y (Gear Icon): <a href="https://icon-icons.com/icon/setting-settings/183789" target="_blank" rel="noopener">https://icon-icons.com/icon/setting-settings/183789</a></fudge>
+                Clipart Library (Tab Icon): <a href="http://clipart-library.com/free/mouse-cursor-transparent.html" target="_blank" rel="noopener">http://clipart-library.com/free/mouse-cursor-transparent.html</a>
+                <br>
+                Vexels (Book Icon): <a href="https://www.pinterest.co.uk/pin/722898177676858452/" target="_blank" rel="noopener">https://www.pinterest.co.uk/pin/722898177676858452/</a>
+                <br>
+                Amit Jakhu (Exit Icon): <a href="https://icon-icons.com/icon/letter-x/87521" target="_blank" rel="noopener">https://icon-icons.com/icon/letter-x/87521</a>
+            </p>
+        </div>
+    </main>
+</body>
+<script type="text/javascript">
+    const message = document.getElementById("randum");
+
+    const rng = Math.floor(Math.random() * 5);
+
+    let response = "Message Glitched :thinking:";
+
+    switch (rng) {
+        case 0:
+            response = "Eveything: Tommeeboi";
+            break;
+        case 1:
+            response = "You. Are. Looking. At. The. Credits.";
+            break;
+        case 2:
+            response = "Libraries: NOBODY! HAHAHA";
+            break;
+        case 3:
+            response = "My Square's Colour Is Bofa";
+            message.title = "bofa deez nuts";
+            break;
+        case 4:
+            response = "How To Be Here: DO SOMETHING";
+            break;
+        default:
+            response = "Message Glitched :thinking:";
+            break;
+    }
+
+    message.innerText = response;
+
+    console.log(rng);
+</script>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divclick</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="indexstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/transparentHand.png">
+    <link rel="apple-touch-icon" href="assets/blackScreenSquare.jpg">
+    <meta name="description" content="A free to play online game that challenges your reaction time and mouse accuracy!">
+    <meta itemprop="description" content="A free to play online game that challenges your reaction time and mouse accuracy!">
+    <!-- i know it's cringe lmao -->
+    <meta name="keywords" content="game, website, website game, web game, click, move, moving, square, squares, square game, timing, click, cps, clicks per second, clicks, online, free">
+</head>
+<body>
+    <header>
+        <div class="iconBar centre">
+            <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
+            <a href="credits.html"><img src="assets/text.png" alt="Credits" title="Credits" loading="lazy"></a>
+            <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy"></a>
+        </div>
+        <div class="bigg centre buld" title="it's called divclick because you click divs">Divclick</div>
+        <div class="kindaBig centre bold">By Tommeeboi</div>
+        <div class="kindaBiggish centre">Alpha v1</div>
+    </header>
+    <br>
+    <main>
+        <article id="GOINTHEMIDDLE">
+        <div id="gridBar">
+            <div class="space">
+            <div class="w175 select centre inBlock">
+                Dimensions
+                <input type="number" id="widthSel" class="centre numeric" min="3" max="15" value="10">
+            </div>
+            <div class="w175 select centre inBlock">
+                Target
+                <input type="color" id="colour" class="centre">
+            </div>
+            <!-- <div class="w175 select centre inBlock">
+                Height
+                <br>
+                <input type="number" id="heightSel" class="centre numeric" min="3" max="15" value="10">
+            </div> -->
+            </div>
+            <div class="btnBar">
+            <br>
+            <button id="import" class="widBtn margBottomBtn gridBtn">Import Settings</button>
+            <br>
+            <button id="submit" class="gridBtn">Submit</button>
+            <button id="play" class="gridBtn">Play</button>
+            <br>
+            <button id="subPlay" class="widBtn margTopBtn gridBtn">Submit & Play</button>
+            </div>
+        </div>
+        <!-- This div is where the squares generate -->
+        <div id="grid">
+        </div>
+        </article>
+    </main>
+    <footer>
+        <div id="poag">
+        <div class="small copy"><span class="kindaBiggish">&copy;</span> Tommeeboi 2022</div>
+        <div class="small proud"><span class="kindaBiggish"> </span>Proudly Owned By Tommeeboi</div>
+        </div>
+    </footer>
+    <!-- Popup Time! (For Settings Import And Export) -->
+    <div id="popBG">
+        <div id="setPop">
+            <img src="assets/exit.png" id="exit" onclick="disappear();">
+            <span style="margin-bottom: 35px; display: block;">Do You Want To...</span>
+            <div class="popBar1">
+                <button id="save" class="popBarBtn">Export<br>Settings</button>
+                <label for="imporInput" id="importt" class="popBarBtn">Import<br>Settings</label>
+                <input type="file" id="imporInput" style="margin: 0px; padding: 0px; width: 0px; height: 0px;" onchange="previewFile();" accept=".divc, .json">
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="popup.js"></script>
+<script type="text/javascript" src="game.js"></script>
+</script>
+</html>
