@@ -95,7 +95,7 @@ function subEvent() {
 
         newDiv.onmousedown = function() {
             // sorry for hoisting the function, i can't be bothered anymore
-            check(document.getElementById(`u${i}`))
+            check(document.getElementById(`u${i + 1}`));
         }
 
         grid.insertBefore(newDiv, oldDiv);
@@ -142,12 +142,12 @@ for (let i = 0; i < j; i++) {
 
 // Welcome... to the game mechanics!
 let dead = false;
+let squareSelector = null;
+let target = null;
+let rng = 0;
+
 
 function playEvent() {
-    let squareSelector = null;
-    let target = null;
-    let rng = 0;
-
     function action() {
         rng = Math.floor(Math.random() * 4);
 
@@ -187,7 +187,8 @@ function playEvent() {
     if (targetColour === null) {
         alert("Click Submit First! (Or Submit & Play)");
     } else {
-        squareSelector = Math.floor(Math.random() * j) + 1;
+        squareSelector = Math.floor(Math.random() * j);
+
         target = document.getElementById(`u${squareSelector}`);
 
         target.style.backgroundColor = correctColour;
