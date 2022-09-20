@@ -3,6 +3,12 @@ const grid = document.getElementById("grid");
 const dimensions = document.getElementById("widthSel");
 const tarColour = document.getElementById("colour");
 
+const popup2 = document.getElementById("popBG2");
+const failMessage = document.getElementById("failMessage");
+const didHeDoIt = document.getElementById("didHeDoIt");
+let failDecider = null;
+let winDecider = null;
+
 // submit, play, and submit 'n play buttons
 const submit = document.getElementById("submit");
 const play = document.getElementById("play");
@@ -20,6 +26,7 @@ let targetColour = null;
 let correctColour = null;
 
 let lives = 3;
+let active = false;
 
 function subEvent() {
     grid.innerHTML = "";
@@ -93,10 +100,10 @@ function subEvent() {
         newDiv.style.width = `${gud - 3}px`;
         newDiv.style.height = `${gud - 3}px`;
 
-        newDiv.onmousedown = function() {
+        /* newDiv.onmousedown = function() {
             // sorry for hoisting the function, i can't be bothered anymore
             check(document.getElementById(`u${i + 1}`));
-        }
+        } */
 
         grid.insertBefore(newDiv, oldDiv);
     }
@@ -116,10 +123,86 @@ function check(square) {
         if (lives > 0) {
             lives -= 1;
         } else {
-            alert("you has dieded");
+            failDecider = Math.floor(Math.random() * 4 + 1);
+
+            switch (failDecider) {
+                case (1):
+                    failMessage.innerText = "That's rough, mate!";
+                    break;
+                    case (2):
+                    failMessage.innerText = "A brother has fallen.";
+                    break;
+                    case (3):
+                    failMessage.innerText = "Player was slain by Moving Square";
+                    break;
+                    case (4):
+                    failMessage.innerText = "It's me again! Fail Screen!";
+                    break;
+                    default:
+                    failMessage.innerText = "((MESSAGE ERROR))";
+                    break;
+            }
+
+            didHeDoIt.innerHTML = `You were not able to smack the target.
+            <br>
+            <br>
+            Getting game ready...`;
+
+            popup2.style.display = "block";
+
+            setTimeout(() => {
+                popup2.style.display = "none";
+            }, 2000);
+
+            target.style.backgroundColor = "initial";
+            target.attributes.death.value = "true";
+
+            target = null;
+
+            lives = 3;
+
+            active = false;
         }
     } else if (square.attributes.death.value === "false") {
-        alert("w");
+        winDecider = Math.floor(Math.random() * 4 + 1);
+
+            switch (winDecider) {
+                case (1):
+                    failMessage.innerText = "GG! :)";
+                    break;
+                    case (2):
+                    failMessage.innerText = "Ya caught dat liddle sneaky bugger!";
+                    break;
+                    case (3):
+                    failMessage.innerText = "He's been told.";
+                    break;
+                    case (4):
+                    failMessage.innerText = "Congratulations, champion!";
+                    break;
+                    default:
+                    failMessage.innerText = "((MESSAGE ERROR))";
+                    break;
+            }
+
+            didHeDoIt.innerHTML = `You successfully smacked the target!
+            <br>
+            <br>
+            Getting game ready...`;
+
+            popup2.style.display = "block";
+
+            setTimeout(() => {
+                popup2.style.display = "none";
+            }, 2000);
+
+            target.style.backgroundColor = "initial";
+            target.attributes.death.value = "true";
+
+            target = null;
+
+            lives = 3;
+
+            active = false;
     }
 }
 
@@ -146,8 +229,16 @@ let squareSelector = null;
 let target = null;
 let rng = 0;
 
-
 function playEvent() {
+    active = true;
+    for (let q = 1; q <= j; q++) {
+        document.getElementById(`u${q}`).onmousedown = function() {
+            if (active === true) {
+                check(document.getElementById(`u${q}`));
+            }
+        }
+    }
+
     function action() {
         rng = Math.floor(Math.random() * 4);
 
@@ -161,11 +252,11 @@ function playEvent() {
             }
         } else if (rng === 2) {
             if (squareSelector <= j - 11) {
-                squareSelector += 10;
+                squareSelector += Number(dimensions.value);
             }
         } else if (rng === 3) {
             if (squareSelector >= 11) {
-                squareSelector -= 10;
+                squareSelector -= Number(dimensions.value);
             }
         } else {
             alert("Broken.");

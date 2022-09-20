@@ -21,6 +21,8 @@ Alpha v1: First Alpha
 
 Alpha v2: Fixed visual bugs and added license
 
-Alpha v3: The target square no longer randomly disappears (including all dimension settings.) Dimensions other than 10x10 are still buggy though.
+Alpha v3: The target square no longer randomly disappears (including all dimension settings.) Dimensions other than 10x10 are still buggy though
 
-Alpha v4: The game is now more accurate, and the correct square is no longer one square to the left of the coloured one.
+Alpha v4: The game is now more accurate, and the correct square is no longer one square to the left of the coloured one
+
+Alpha v5: All dimensions now work properly, and the game resets properly (including new popups)! WOO
