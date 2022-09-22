@@ -83,12 +83,25 @@ body {
     margin-top: 50px;
 }
 
+a:link {
+    color: #0000ff;
+}
+
 a:visited {
-    color: hsl(300, 100%, 40%);
+    color: hsl(299, 88%, 50%);
 }
 
 fudge {
     display: block;
     opacity: 0.5;
     cursor: help;
+}
+
+.copy {
+    float: left;
+}
+
+.proud {
+    display: inline;
+    float: right;
 }

@@ -2,6 +2,7 @@
 const grid = document.getElementById("grid");
 const dimensions = document.getElementById("widthSel");
 const tarColour = document.getElementById("colour");
+const speed = document.getElementById("speedSel")
 
 const popup2 = document.getElementById("popBG2");
 const failMessage = document.getElementById("failMessage");
@@ -83,6 +84,12 @@ function subEvent() {
         gud = 36;
     }
 
+    if (speed.value < 50) {
+        speed.value = 50;
+    } else if (speed.value > 1000) {
+        speed.value = 1000;
+    }
+
     grid.style.gridTemplateColumns = `repeat(${dimensions.value}, ${gud}px)`;
     grid.style.gridTemplateRows = `repeat(${dimensions.value}, ${gud}px)`;
 
@@ -127,20 +134,20 @@ function check(square) {
 
             switch (failDecider) {
                 case (1):
-                    failMessage.innerText = "That's rough, mate!";
-                    break;
-                    case (2):
-                    failMessage.innerText = "A brother has fallen.";
-                    break;
-                    case (3):
-                    failMessage.innerText = "Player was slain by Moving Square";
-                    break;
-                    case (4):
-                    failMessage.innerText = "It's me again! Fail Screen!";
-                    break;
-                    default:
-                    failMessage.innerText = "((MESSAGE ERROR))";
-                    break;
+                failMessage.innerText = "That's rough, mate!";
+                break;
+                case (2):
+                failMessage.innerText = "A brother has fallen.";
+                break;
+                case (3):
+                failMessage.innerText = "Player was slain by Moving Square";
+                break;
+                case (4):
+                failMessage.innerText = "It's me again! Fail Screen!";
+                break;
+                default:
+                failMessage.innerText = "((MESSAGE ERROR))";
+                break;
             }
 
             didHeDoIt.innerHTML = `You were not able to smack the target.
@@ -164,24 +171,30 @@ function check(square) {
             active = false;
         }
     } else if (square.attributes.death.value === "false") {
-        winDecider = Math.floor(Math.random() * 4 + 1);
+        winDecider = Math.floor(Math.random() * 6 + 1);
 
             switch (winDecider) {
                 case (1):
-                    failMessage.innerText = "GG! :)";
-                    break;
-                    case (2):
-                    failMessage.innerText = "Ya caught dat liddle sneaky bugger!";
-                    break;
-                    case (3):
-                    failMessage.innerText = "He's been told.";
-                    break;
-                    case (4):
-                    failMessage.innerText = "Congratulations, champion!";
-                    break;
-                    default:
-                    failMessage.innerText = "((MESSAGE ERROR))";
-                    break;
+                failMessage.innerText = "GG! :)";
+                break;
+                case (2):
+                failMessage.innerText = "Ya caught dat liddle sneaky bugger!";
+                break;
+                case (3):
+                failMessage.innerText = "He's been told.";
+                break;
+                case (4):
+                failMessage.innerText = "Congratulations, champion!";
+                break;
+                case (5):
+                failMessage.innerText = "You like did it and stuff.";
+                break;
+                case (6):
+                failMessage.innerText = "This is one of the moments ever!";
+                break;
+                default:
+                failMessage.innerText = "((MESSAGE ERROR))";
+                break;
             }
 
             didHeDoIt.innerHTML = `You successfully smacked the target!
@@ -228,9 +241,12 @@ let dead = false;
 let squareSelector = null;
 let target = null;
 let rng = 0;
+let interval = null;
 
 function playEvent() {
     active = true;
+    interval = speed.value;
+
     for (let q = 1; q <= j; q++) {
         document.getElementById(`u${q}`).onmousedown = function() {
             if (active === true) {
@@ -272,7 +288,7 @@ function playEvent() {
 
         setTimeout(() => {
             action();
-        }, 150);
+        }, interval);
     }
     
     if (targetColour === null) {

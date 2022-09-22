@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/transparentHand.png">
-    <link rel="apple-touch-icon" href="assets/blackScreenSquare.jpg">
+    <link rel="icon" href="assets/badIcon.png">
+    <link rel="apple-touch-icon" href="assets/badIcon.png">
     <meta name="description" content="A free to play online game that challenges your reaction time and mouse accuracy!">
     <meta itemprop="description" content="A free to play online game that challenges your reaction time and mouse accuracy!">
     <!-- i know it's cringe lmao -->
@@ -22,11 +22,11 @@
         <div class="iconBar centre">
             <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
             <a href="credits.html"><img src="assets/text.png" alt="Credits" title="Credits" loading="lazy"></a>
-            <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy"></a>
+            <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="goToGithub();">
         </div>
         <div class="bigg centre buld" title="it's called divclick because you click divs">Divclick</div>
         <div class="kindaBig centre bold">By Tommeeboi</div>
-        <div class="kindaBiggish centre">Alpha v5</div>
+        <div class="kindaBiggish centre">Beta v0.0</div>
     </header>
     <br>
     <main>
@@ -40,6 +40,10 @@
             <div class="w175 select centre inBlock">
                 Target
                 <input type="color" id="colour" class="centre">
+            </div>
+            <div class="w175 select centre inBlock">
+                Speed (ms)
+                <input type="number" id="speedSel" class="centre numeric" min="50" max="1000" value="150">
             </div>
             </div>
             <div class="btnBar">
@@ -57,17 +61,18 @@
         </div>
         </article>
     </main>
+    <br>
     <footer>
         <div id="poag">
         <div class="small copy"><span class="kindaBiggish">&copy;</span> Tommeeboi 2022</div>
         <div class="small proud"><span class="kindaBiggish"> </span>Proudly Owned By Tommeeboi</div>
         </div>
     </footer>
-    <!-- Popup Time! (For Settings Import And Export) -->
+    <!-- Popup Time! -->
     <div id="popBG">
         <div id="setPop">
             <img src="assets/exit.png" id="exit" onclick="disappear();">
-            <span style="margin-bottom: 35px; display: block;">Do You Want To...</span>
+            <span style="margin-bottom: 35px; display: block;">Do you want to...</span>
             <div class="popBar1">
                 <button id="save" class="popBarBtn">Export<br>Settings</button>
                 <label for="imporInput" id="importt" class="popBarBtn">Import<br>Settings</label>
@@ -84,6 +89,17 @@
                 <br>
                 <br>
                 Getting game ready...
+            </div>
+        </div>
+    </div>
+
+    <div id="popBG3">
+        <div id="setPop3">
+            <img src="assets/exit.png" id="exit" onclick="disappear();">
+            <span style="margin-bottom: 35px; display: block;">Where do you want to go?</span>
+            <div class="popBar1">
+                <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><button id="mainPage" class="popBarBtnCooler">Main Page<br>(Download)</button></a>
+                <a href="https://github.com/Tommeeboi/Divclick/Wiki/Status" target="_blank" rel="noopener"><button id="status" class="popBarBtnCooler">Development<br>Status</button></a>
             </div>
         </div>
     </div>

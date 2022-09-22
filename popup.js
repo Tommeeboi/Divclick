@@ -5,13 +5,19 @@ const reader = new FileReader();
 const imSet = document.getElementById("import");
 
 // inputs (in regular home page)
-
 const dimensums = document.getElementById("widthSel");
 const tarColourr = document.getElementById("colour");
+const sped = document.getElementById("speedSel");
 
 // popup
 const popup = document.getElementById("popBG");
 const innerPopup = document.getElementById("setPop");
+
+const popup3 = document.getElementById("popBG3");
+const innerPopup3 = document.getElementById("setPop3");
+
+const mainPage = document.getElementById("mainPage");
+const status = document.getElementById("status");
 
 /* export and import buttons
 i had to add an extra t onto both of them due to export and import being forbidden variable names */
@@ -53,10 +59,11 @@ working after being pressed once for some reason
 */
 function disappear() {
     popup.style.display = "none";
+    popup3.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">
-    <span style="margin-bottom: 35px; display: block;">Do You Want To...</span>
+    <span style="margin-bottom: 35px; display: block;">Do you want to...</span>
     <div class="popBar1">
         <button id="save" class="popBarBtn" onclick="getJsonText();">Export<br>Settings</button>
         <label for="imporInput" id="importt" class="popBarBtn">Import<br>Settings</label>
@@ -64,7 +71,7 @@ function disappear() {
     </div>`;
     } else if (firefox === true) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">
-    <span style="margin-bottom: 35px; display: block;">Do You Want To...</span>
+    <span style="margin-bottom: 35px; display: block;">Do you want to...</span>
     <div class="popBar1">
         <button id="save" class="popBarBtn" onclick="getJsonText();" style="bottom: 0px;">Export<br>Settings</button>
         <label for="imporInput" id="importt" class="popBarBtn">Import<br>Settings</label>
@@ -85,7 +92,8 @@ function getJsonText() {
     const jsonText =
         `{
     "dimensions": "${dimensums.value}",
-    "colour": "${tarColourr.value}"
+    "colour": "${tarColourr.value}",
+    "speed": "${sped.value}"
 }`;
 
     navigator.clipboard.writeText(jsonText);
@@ -122,8 +130,9 @@ function previewFile() {
                 alert(`Your file is incompatible with Divclick.
 Try comparing it with this example:
 {
-    "dimensions": 10,
-    "colour": "#000000"
+    "dimensions": "10",
+    "colour": "#000000",
+    "sped": "150"
 }
         `)
             }
@@ -135,8 +144,13 @@ Try comparing it with this example:
 
         dimensums.value = fixedResult.dimensions;
         tarColourr.value = fixedResult.colour;
+        sped.value = fixedResult.speed;
     }
     if (file) {
         reader.readAsText(file);
     }
+}
+
+function goToGithub() {
+    popup3.style.display = "block";
 }
