@@ -1,10 +1,10 @@
-// remember: innerWidth, innerHeight
 const grid = document.getElementById("grid");
 const dimensions = document.getElementById("widthSel");
 const tarColour = document.getElementById("colour");
 const speed = document.getElementById("speedSel")
 
 const popup2 = document.getElementById("popBG2");
+const popup4 = document.getElementById("popBG4");
 const failMessage = document.getElementById("failMessage");
 const didHeDoIt = document.getElementById("didHeDoIt");
 let failDecider = null;
@@ -15,7 +15,7 @@ const submit = document.getElementById("submit");
 const play = document.getElementById("play");
 const subPlay = document.getElementById("subPlay");
 
-// Dimensions Settings. Scroll to line 112 for the actual game
+// Dimensions Settings. Scroll to line 245 for the actual game
 let oldDiv = null;
 let newDiv = null;
 
@@ -26,14 +26,21 @@ let gud = 53;
 let targetColour = null;
 let correctColour = null;
 
+// how many lives you have
 let lives = 3;
+// this variable is used for telling the game what stuff to do depending on if the game is running or not
 let active = false;
 
+// this function runs when you click submit
 function subEvent() {
+    // This makes the grid have no squares so it can fill in the squares 
     grid.innerHTML = "";
 
     targetColour = tarColour.value;
 
+    /* the j variable counts how many squares there are
+    the gud variable counts how many pixels wide and tall the squares will be
+    idk why they're called those names lmao */
     if (dimensions.value === '5') {
         j = 25;
         gud = 106;
@@ -84,6 +91,7 @@ function subEvent() {
         gud = 36;
     }
 
+    // YOU HAVE TO FOLLOW MY RULES >:DDDDD
     if (speed.value < 50) {
         speed.value = 50;
     } else if (speed.value > 1000) {
@@ -93,6 +101,7 @@ function subEvent() {
     grid.style.gridTemplateColumns = `repeat(${dimensions.value}, ${gud}px)`;
     grid.style.gridTemplateRows = `repeat(${dimensions.value}, ${gud}px)`;
 
+    // This generates all of the squares in the correct grid size
     for (let i = 0; i < j; i++) {
         ii = i + 1;
 
@@ -107,11 +116,6 @@ function subEvent() {
         newDiv.style.width = `${gud - 3}px`;
         newDiv.style.height = `${gud - 3}px`;
 
-        /* newDiv.onmousedown = function() {
-            // sorry for hoisting the function, i can't be bothered anymore
-            check(document.getElementById(`u${i + 1}`));
-        } */
-
         grid.insertBefore(newDiv, oldDiv);
     }
     
@@ -122,9 +126,11 @@ submit.onclick = function() {
     subEvent();
 }
 
+// the default grid
 grid.style.gridTemplateColumns = "repeat(10, 53px)";
 grid.style.gridTemplateRows = "repeat(10, 53px)";
 
+// This functions runs when you click a square, and decides your fate
 function check(square) {
     if (square.attributes.death.value === "true") {
         if (lives > 0) {
@@ -243,6 +249,7 @@ let target = null;
 let rng = 0;
 let interval = null;
 
+// This function runs when you click Play
 function playEvent() {
     active = true;
     interval = speed.value;
@@ -254,7 +261,7 @@ function playEvent() {
             }
         }
     }
-
+    // This function moves the square (and other stuff)
     function action() {
         rng = Math.floor(Math.random() * 4);
 
@@ -286,13 +293,15 @@ function playEvent() {
         target.style.backgroundColor = correctColour;
         target.attributes.death.value = "false";
 
+        // The interval variable is speed.value
         setTimeout(() => {
             action();
         }, interval);
     }
     
+    // The way it knows if you've submitted properly is by checking the targetColour variable. I'm exploiting my own bugs lmao
     if (targetColour === null) {
-        alert("Click Submit First! (Or Submit & Play)");
+        popup4.style.display = "block";
     } else {
         squareSelector = Math.floor(Math.random() * j);
 
@@ -305,10 +314,12 @@ function playEvent() {
     }
 }
 
+// told you
 play.onclick = function() {
     playEvent();
 }
 
+// Submit and Play just runs the submit function and then the play function right after
 subPlay.onclick = function() {
     subEvent();
     playEvent();

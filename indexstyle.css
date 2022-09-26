@@ -242,7 +242,7 @@ label {
 
 /* credit to colon for NOTHING! I FOUND A BETTER WAY! BWAHAHA */
 
-#popBG, #popBG2, #popBG3 {
+#popBG, #popBG2, #popBG3, #popBG4 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -254,7 +254,7 @@ label {
     overflow: hidden;
 }
 
-#setPop, #setPop3 {
+#setPop, #setPop3, #setPop4 {
     /* code to make the popup in the centre of your screen (center is spelt centre in britain :) */
     position: fixed;
     top: 50%;

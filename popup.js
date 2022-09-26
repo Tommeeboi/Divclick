@@ -60,6 +60,7 @@ working after being pressed once for some reason
 function disappear() {
     popup.style.display = "none";
     popup3.style.display = "none";
+    popup4.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">

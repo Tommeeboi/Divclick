@@ -28,3 +28,5 @@ Alpha v4: The game is now more accurate, and the correct square is no longer one
 Alpha v5: All dimensions now work properly, and the game resets properly (including new popups)! WOO
 
 Beta v0.0 (22/09/2022): First Beta! Introduces the ability to change the speed of the target, as well as bugfixes and improvements
+
+Beta v0.1 (23/09/2022): "Click submit first" is now a proper popup. Also fixed the link to the Status, and added comments to game.js.
