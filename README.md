@@ -12,7 +12,9 @@ WARNING: This only works for PC/Mac users. Mobile devices can't run this properl
 2. Unzip it
 3. Inside the unzipped copy, open index.html in your browser
 
-Divclick is still in Alpha, so expect lots of bugs and unfinished features.
+Divclick is still in Beta, so expect lots of bugs and new features.
+
+If you want to suggest a new feature, be sure to create an issue!
 
 ## Releases
 The Alpha versions were private and were only shown to people I know.
@@ -29,4 +31,6 @@ Alpha v5: All dimensions now work properly, and the game resets properly (includ
 
 Beta v0.0 (22/09/2022): First Beta! Introduces the ability to change the speed of the target, as well as bugfixes and improvements
 
-Beta v0.1 (23/09/2022): "Click submit first" is now a proper popup. Also fixed the link to the Status, and added comments to game.js.
+Beta v0.1 (26/09/2022): "Click submit first" is now a proper popup. Also fixed the link to the Status, and added comments to game.js. I originally finished this release on 23/09 but forgot to publish it xD
+
+Beta v0.2 (26/09/2022): Fixed Github Button, and added bugfixes and improvements. Setting menu coming soon I promise

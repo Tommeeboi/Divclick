@@ -17,7 +17,7 @@
         <div class="iconBar centre">
             <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
             <a href="/"><img src="assets/house.png" alt="Home" title="I actually edited this photo in Paint 3D :D" loading="lazy"></a>
-            <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy"></a>
+            <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="appear();">
         </div>
         <div class="bigg centre buld" title="it's called divclick because you click divs">Credits</div>
         <div class="kindaBig centre bold" id="randum">((RANDOM))</div>
@@ -69,7 +69,19 @@
         <div class="small proud"><span class="kindaBiggish"> </span>Proudly Owned By Tommeeboi</div>
         </div>
     </footer>
+
+    <div id="popBG3">
+        <div id="setPop3">
+            <img src="assets/exit.png" id="exit" onclick="disappearr();">
+            <span style="margin-bottom: 35px; display: block;">Where do you want to go?</span>
+            <div class="popBar1">
+                <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><button id="mainPage" class="popBarBtnCooler">Main Page<br>(Download)</button></a>
+                <a href="https://github.com/Tommeeboi/Divclick/wiki/Status" target="_blank" rel="noopener"><button id="status" class="popBarBtnCooler">Development<br>Status</button></a>
+            </div>
+        </div>
+    </div>
 </body>
+<script type="text/javascript" src="githubButton.js"></script>
 <script type="text/javascript">
     const message = document.getElementById("randum");
 

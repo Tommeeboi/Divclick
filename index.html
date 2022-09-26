@@ -22,11 +22,11 @@
         <div class="iconBar centre">
             <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
             <a href="credits.html"><img src="assets/text.png" alt="Credits" title="Credits" loading="lazy"></a>
-            <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="goToGithub();">
+            <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="appear();">
         </div>
         <div class="bigg centre buld" title="it's called divclick because you click divs">Divclick</div>
         <div class="kindaBig centre bold">By Tommeeboi</div>
-        <div class="kindaBiggish centre">Beta v0.1</div>
+        <div class="kindaBiggish centre">Beta v0.2</div>
     </header>
     <br>
     <main>
@@ -95,7 +95,7 @@
 
     <div id="popBG3">
         <div id="setPop3">
-            <img src="assets/exit.png" id="exit" onclick="disappear();">
+            <img src="assets/exit.png" id="exit" onclick="disappearr();">
             <span style="margin-bottom: 35px; display: block;">Where do you want to go?</span>
             <div class="popBar1">
                 <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><button id="mainPage" class="popBarBtnCooler">Main Page<br>(Download)</button></a>
@@ -107,7 +107,20 @@
     <div id="popBG4">
         <div id="setPop4">
             <img src="assets/exit.png" id="exit" onclick="disappear();">
-            <span style="margin-bottom: 35px; display: block;" id="topMessage">Something went wrong!</span>
+            <span style="margin-bottom: 35px; display: block;">Something went wrong!</span>
+            <div class="popBar2 kindaBiggish">
+                Click submit first!
+                <br>
+                <br>
+                You can also click Submit & Play.
+            </div>
+        </div>
+    </div>
+
+    <div id="popBG5">
+        <div id="setPop5">
+            <img src="assets/exit.png" id="exit" onclick="disappear();">
+            <span style="margin-bottom: 35px; display: block;">Extra Settings</span>
             <div class="popBar2 kindaBiggish" id="subMessage">
                 Click submit first!
                 <br>
@@ -119,5 +132,6 @@
 </body>
 <script type="text/javascript" src="popup.js"></script>
 <script type="text/javascript" src="game.js"></script>
+<script type="text/javascript" src="githubButton.js"></script>
 </script>
 </html>

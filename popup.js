@@ -16,6 +16,9 @@ const innerPopup = document.getElementById("setPop");
 const popup3 = document.getElementById("popBG3");
 const innerPopup3 = document.getElementById("setPop3");
 
+const popup5 = document.getElementById("popBG5");
+const innerPopup5 = document.getElementById("setPop5");
+
 const mainPage = document.getElementById("mainPage");
 const status = document.getElementById("status");
 
@@ -56,11 +59,13 @@ imSet.onclick = function () {
 /* the function that occurs when you click exit. it used to just reload the page but that doesn't work due
 to it forgetting the settings you imported. it has to reload the html for the popup due to the buttons not
 working after being pressed once for some reason
-*/
+This function was originally only intended for the Import Settings popup but became useful for other popups too xD */
 function disappear() {
     popup.style.display = "none";
-    popup3.style.display = "none";
+    // popup2 is the fail/win one
+    // popup4 is declared in game.js
     popup4.style.display = "none";
+    popup5.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">
@@ -133,7 +138,7 @@ Try comparing it with this example:
 {
     "dimensions": "10",
     "colour": "#000000",
-    "sped": "150"
+    "speed": "150"
 }
         `)
             }
@@ -150,8 +155,4 @@ Try comparing it with this example:
     if (file) {
         reader.readAsText(file);
     }
-}
-
-function goToGithub() {
-    popup3.style.display = "block";
 }
