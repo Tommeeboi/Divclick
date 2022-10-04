@@ -16,8 +16,7 @@ const innerPopup = document.getElementById("setPop");
 const popup3 = document.getElementById("popBG3");
 const innerPopup3 = document.getElementById("setPop3");
 
-const popup5 = document.getElementById("popBG5");
-const innerPopup5 = document.getElementById("setPop5");
+const popup5SortOf = document.getElementById("popBG5");
 
 const mainPage = document.getElementById("mainPage");
 const status = document.getElementById("status");
@@ -65,7 +64,7 @@ function disappear() {
     // popup2 is the fail/win one
     // popup4 is declared in game.js
     popup4.style.display = "none";
-    popup5.style.display = "none";
+    popup5SortOf.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">

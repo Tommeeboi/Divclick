@@ -91,11 +91,12 @@ a:visited {
     color: hsl(299, 88%, 50%);
 }
 
+/* Old styles for unused files that still needed credits
 fudge {
     display: block;
     opacity: 0.5;
     cursor: help;
-}
+} */
 
 .copy {
     float: left;

@@ -18,15 +18,27 @@
     <meta name="keywords" content="game, website, website game, web game, web, click, move, moving, square, squares, square game, timing, cps, clicks per second, clicks, online, free">
 </head>
 <body>
+    <div id="mobileBlocker" class="kindaBig centre">
+        Oh no!
+        <div class="kindaBiggish">
+            Your screen is too tiny to fit this page.
+            <br>
+            If you are on mobile, rotate your device horizontally.
+            <br>
+            If you are on PC... why is your window this small omg
+        </div>
+    </div>
+    <div id="working">
     <header>
-        <div class="iconBar centre">
+        <div class="iconBar centre" id="redirects">
             <a href="tutorial.html"><img src="assets/creditsIcon.png" alt="Tutorial" title="Tutorial" loading="lazy"></a>
+            <img src="assets/flatSettings.png" alt="Settings" title="Settings" loading="lazy" style="cursor: pointer;" onclick="whatDoYouWant();">
             <a href="credits.html"><img src="assets/text.png" alt="Credits" title="Credits" loading="lazy"></a>
             <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="appear();">
         </div>
         <div class="bigg centre buld" title="it's called divclick because you click divs">Divclick</div>
         <div class="kindaBig centre bold">By Tommeeboi</div>
-        <div class="kindaBiggish centre">Beta v0.2</div>
+        <div class="kindaBiggish centre">Beta v0.3</div>
     </header>
     <br>
     <main>
@@ -57,6 +69,7 @@
             </div>
         </div>
         <!-- This div is where the squares generate -->
+        <div class="kindaBiggish centre" id="livesCounter">Lives: <span id="lives">4</span></div>
         <div id="grid">
         </div>
         </article>
@@ -121,17 +134,21 @@
         <div id="setPop5">
             <img src="assets/exit.png" id="exit" onclick="disappear();">
             <span style="margin-bottom: 35px; display: block;">Extra Settings</span>
-            <div class="popBar2 kindaBiggish" id="subMessage">
-                Click submit first!
+            <div class="popBar2 kindaBiggish" id="options">
+                <span id="setLC">Lives Counter</span>
                 <br>
+                <span id="setVRR">Value Reset On Refresh (Firefox)</span>
                 <br>
-                You can also click Submit & Play.
+                <span id="setBRDP">Block Redirects During Play</span>
+                <br>
+                <span id="setGT">Grid Colour Match With Target</span>
             </div>
         </div>
     </div>
+</div>
 </body>
+<script type="text/javascript" src="settings.js"></script>
 <script type="text/javascript" src="popup.js"></script>
 <script type="text/javascript" src="game.js"></script>
 <script type="text/javascript" src="githubButton.js"></script>
-</script>
 </html>

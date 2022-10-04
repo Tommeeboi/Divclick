@@ -1,7 +1,7 @@
 const grid = document.getElementById("grid");
 const dimensions = document.getElementById("widthSel");
 const tarColour = document.getElementById("colour");
-const speed = document.getElementById("speedSel")
+const speed = document.getElementById("speedSel");
 
 const popup2 = document.getElementById("popBG2");
 const popup4 = document.getElementById("popBG4");
@@ -14,6 +14,13 @@ let winDecider = null;
 const submit = document.getElementById("submit");
 const play = document.getElementById("play");
 const subPlay = document.getElementById("subPlay");
+
+// lives counter (the number)
+const counterHTML = document.getElementById("lives");
+let counter = counterHTML.innerText;
+
+// The bar with the redirects at the top of the page
+const redirectDiv = document.getElementById("redirects");
 
 // Dimensions Settings. Scroll to line 245 for the actual game
 let oldDiv = null;
@@ -30,6 +37,11 @@ let correctColour = null;
 let lives = 3;
 // this variable is used for telling the game what stuff to do depending on if the game is running or not
 let active = false;
+
+function update() {
+    counter -= 1;
+    counterHTML.innerText = counter;
+}
 
 // this function runs when you click submit
 function subEvent() {
@@ -116,6 +128,10 @@ function subEvent() {
         newDiv.style.width = `${gud - 3}px`;
         newDiv.style.height = `${gud - 3}px`;
 
+        if (gt === 1) {
+        newDiv.style.border = `2px solid ${tarColour.value}`;
+        }
+
         grid.insertBefore(newDiv, oldDiv);
     }
     
@@ -135,7 +151,10 @@ function check(square) {
     if (square.attributes.death.value === "true") {
         if (lives > 0) {
             lives -= 1;
+            update();
         } else {
+            update();
+
             failDecider = Math.floor(Math.random() * 4 + 1);
 
             switch (failDecider) {
@@ -165,6 +184,8 @@ function check(square) {
 
             setTimeout(() => {
                 popup2.style.display = "none";
+                counter = 4;
+                counterHTML.innerText = counter;
             }, 2000);
 
             target.style.backgroundColor = "initial";
@@ -175,16 +196,18 @@ function check(square) {
             lives = 3;
 
             active = false;
+
+            redirectDiv.style.display = "block";
         }
     } else if (square.attributes.death.value === "false") {
-        winDecider = Math.floor(Math.random() * 6 + 1);
+        winDecider = Math.floor(Math.random() * 7 + 1);
 
             switch (winDecider) {
                 case (1):
                 failMessage.innerText = "GG! :)";
                 break;
                 case (2):
-                failMessage.innerText = "Ya caught dat liddle sneaky bugger!";
+                failMessage.innerText = "Ya caught dat liddle sneaky thug!";
                 break;
                 case (3):
                 failMessage.innerText = "He's been told.";
@@ -197,6 +220,9 @@ function check(square) {
                 break;
                 case (6):
                 failMessage.innerText = "This is one of the moments ever!";
+                break;
+                case (7):
+                failMessage.innerText = "I feel intimidated by your skills.";
                 break;
                 default:
                 failMessage.innerText = "((MESSAGE ERROR))";
@@ -222,6 +248,10 @@ function check(square) {
             lives = 3;
 
             active = false;
+
+            if (rb === 1) {
+                redirectDiv.style.display = "block";
+            }
     }
 }
 
@@ -253,6 +283,10 @@ let interval = null;
 function playEvent() {
     active = true;
     interval = speed.value;
+
+    if (rb === 1) {
+        redirectDiv.style.display = "none";
+    }
 
     for (let q = 1; q <= j; q++) {
         document.getElementById(`u${q}`).onmousedown = function() {
