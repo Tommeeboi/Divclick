@@ -54,7 +54,9 @@ I have also implemented some mobile optimization, which forces the user to rotat
 Beta v0.4 (06/10/2022):
 1. Added a new update system, like the old one from Cat Club
 2. Fixed Lives Counter going into negative numbers
-3. Bugfixes and improvements`;
+3. Bugfixes and improvements
+
+Beta v0.5 (06/10/2022): Fixed links to home page not working properly`;
 
 /* jQuery is required for this to work
 This grabs the contents of the raw README.md from the Github repository, and compares it with the template README.
