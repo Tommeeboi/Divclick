@@ -238,6 +238,8 @@ function check(square) {
 
             setTimeout(() => {
                 popup2.style.display = "none";
+                counter = 4;
+                counterHTML.innerText = counter;
             }, 2000);
 
             target.style.backgroundColor = "initial";

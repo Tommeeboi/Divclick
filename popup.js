@@ -18,6 +18,8 @@ const innerPopup3 = document.getElementById("setPop3");
 
 const popup5SortOf = document.getElementById("popBG5");
 
+const popup6ButWorse = document.getElementById("popBG6");
+
 const mainPage = document.getElementById("mainPage");
 const status = document.getElementById("status");
 
@@ -65,6 +67,7 @@ function disappear() {
     // popup4 is declared in game.js
     popup4.style.display = "none";
     popup5SortOf.style.display = "none";
+    popup6ButWorse.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">

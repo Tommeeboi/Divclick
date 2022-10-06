@@ -1,4 +1,11 @@
-# Divclick
+const warning = document.getElementById("updateWarning");
+const popup6 = document.getElementById("popBG6");
+
+function warningInYourFace() {
+    popup6.style.display = "block";
+}
+
+const example = `# Divclick
 A website game using no Javascript Libraries or images! (apart from the links at the top of the page)
 
 Created in 5 months (including a 2 month break) by Tommeeboi (Me). I'm a one man army.
@@ -47,4 +54,19 @@ I have also implemented some mobile optimization, which forces the user to rotat
 Beta v0.4 (06/10/2022):
 1. Added a new update system, like the old one from Cat Club
 2. Fixed Lives Counter going into negative numbers
-3. Bugfixes and improvements
+3. Bugfixes and improvements`;
+
+/* jQuery is required for this to work
+This grabs the contents of the raw README.md from the Github repository, and compares it with the template README.
+If they are different, the update thingo appears */
+$.ajax({
+    url: 'https://raw.githubusercontent.com/Tommeeboi/Divclick/master/README.md',
+    type: 'GET',
+    success: function(res) {
+        let data = $.parseHTML(res);
+
+        if (data[0].data !== example) {
+            warning.style.display = "block";
+        }
+    }
+});
