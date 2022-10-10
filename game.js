@@ -22,6 +22,9 @@ let counter = counterHTML.innerText;
 // The bar with the redirects at the top of the page
 const redirectDiv = document.getElementById("redirects");
 
+// update warning
+const updateWarningDiv = document.getElementById("updateWarning");
+
 // Dimensions Settings. Scroll to line 245 for the actual game
 let oldDiv = null;
 let newDiv = null;
@@ -198,6 +201,10 @@ function check(square) {
             active = false;
 
             redirectDiv.style.display = "block";
+
+            if (different === true) {
+                updateWarningDiv.style.display = "block";
+            }
         }
     } else if (square.attributes.death.value === "false") {
         winDecider = Math.floor(Math.random() * 7 + 1);
@@ -251,8 +258,10 @@ function check(square) {
 
             active = false;
 
-            if (rb === 1) {
-                redirectDiv.style.display = "block";
+            redirectDiv.style.display = "block";
+
+            if (different === true) {
+                updateWarningDiv.style.display = "block";
             }
     }
 }
@@ -286,8 +295,9 @@ function playEvent() {
     active = true;
     interval = speed.value;
 
-    if (rb === 1) {
+    if (rb === 1 && targetColour !== null) {
         redirectDiv.style.display = "none";
+        updateWarningDiv.style.display = "none";
     }
 
     for (let q = 1; q <= j; q++) {

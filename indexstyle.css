@@ -392,13 +392,47 @@ label {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 950px) {
-    #setPop, #setPop2, #setPop3, #setPop4, #setPop5 {
+/* These remove the stupid arrows from the number inputs. The second ruleset is for Firefox, and the first ruleset is for everything else
+Credits: w3schools xD */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 1000px) {
+    #setPop, #setPop2, #setPop3, #setPop4, #setPop5, #setPop6 {
         width: 90%;
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 925px) {
+    #setPop, #setPop2, #setPop3, #setPop4, #setPop5, #setPop6 {
+        font-size: 40px;
+        height: 290px;
+    }
+
+    .popBarBtnCooler {
+        font-size: 30px;
+        width: 305px;
+        height: 190px;
+    }
+
+    #exit {
+        width: 34px;
+        height: auto;
+    }
+
+    .kindaBiggish {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 850px) {
     #mobileBlocker {
         display: block;
     }
