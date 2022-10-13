@@ -37,9 +37,9 @@
             <a href="credits.html"><img src="assets/text.png" alt="Credits" title="Credits" loading="lazy"></a>
             <img src="assets/github.png" alt="Divclick On Github" title="Divclick On Github" loading="lazy" style="cursor: pointer;" onclick="appear();">
         </div>
-        <div class="bigg centre buld" title="it's called divclick because you click divs">Divclick</div>
+        <div class="bigg centre buld" title="it's called divclick because you click divs" style="width: fit-content; margin: 0px auto;">Divclick</div>
         <div class="kindaBig centre bold">By Tommeeboi</div>
-        <div class="centre" style="font-size: 35px;">Beta v0.6</div>
+        <div class="centre" style="font-size: 35px;">Beta v0.7</div>
     </header>
     <br>
     <main>
@@ -74,6 +74,7 @@
         <div id="grid">
         </div>
         </article>
+        <div id="tipClick" class="kindaBiggish centre" style="font-size: 35px;">Click here for a tip!</div>
     </main>
     <br>
     <footer>
@@ -143,6 +144,8 @@
                 <span id="setBRDP">Block Redirects During Play</span>
                 <br>
                 <span id="setGT">Grid Colour Match With Target</span>
+                <br>
+                <span id="setDC">(Beta) Patch Out Double Clicks</span>
             </div>
         </div>
     </div>
@@ -152,11 +155,21 @@
             <img src="assets/exit.png" id="exit" onclick="disappear();">
             <span style="margin-bottom: 20px; display: block;">Outdated Version</span>
             <div class="popBar2 kindaBiggish">
-                Divclick has updated! Your current version, <strong>v0.6</strong>, is old! Would you like to update to the shiny new version?
+                Divclick has updated! Your current version, <strong>v0.7</strong>, is old! Would you like to update to the shiny new version?
             </div>
             <div class="popBar2" style="margin-top: 20px;">
                 <a href="https://github.com/Tommeeboi/Divclick" target="_blank" rel="noopener"><button class="popBarBtnSmaller">Download</button></a>
                 <button class="popBarBtnSmaller" onclick="disappear();">Ignore</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popBG7">
+        <div id="setPop7">
+            <img src="assets/exit.png" id="exit" onclick="disappear();">
+            <span style="margin-bottom: 35px; display: block;">Extra Tip!</span>
+            <div class="popBar2 kindaBiggish" id="leMessage">
+                tip message
             </div>
         </div>
     </div>

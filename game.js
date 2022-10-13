@@ -46,6 +46,30 @@ function update() {
     counterHTML.innerText = counter;
 }
 
+const doubleClicks = document.getElementById("setDC");
+let dc = 1;
+
+// the double click setting
+if (startCookies.doubleClicks === "0") {
+    dc = 0;
+    doubleClicks.style.color = "red";
+}
+
+doubleClicks.onclick = function() {
+    if (dc === 0) {
+        dc = 1;
+        doubleClicks.style.color = "rgb(0, 192, 0)";
+        document.cookie = "doubleClicks=1";
+    } else if (dc === 1) {
+        dc = 0;
+        doubleClicks.style.color = "red";
+        document.cookie = "doubleClicks=0";
+    }
+}
+
+
+
+
 // this function runs when you click submit
 function subEvent() {
     // This makes the grid have no squares so it can fill in the squares 
@@ -142,68 +166,82 @@ function subEvent() {
 }
 
 submit.onclick = function() {
-    subEvent();
+    if (active === false) {
+        subEvent();
+    }
 }
 
 // the default grid
 grid.style.gridTemplateColumns = "repeat(10, 53px)";
 grid.style.gridTemplateRows = "repeat(10, 53px)";
 
+let canClick = true;
+
 // This functions runs when you click a square, and decides your fate
 function check(square) {
     if (square.attributes.death.value === "true") {
-        if (lives > 0) {
-            lives -= 1;
-            update();
-        } else {
-            update();
+        if (canClick === true) {
+            if (lives > 0) {
+                lives -= 1;
+                update();
 
-            failDecider = Math.floor(Math.random() * 4 + 1);
+                if (dc === 1) {
+                    canClick = false;
 
-            switch (failDecider) {
-                case (1):
-                failMessage.innerText = "That's rough, mate!";
-                break;
-                case (2):
-                failMessage.innerText = "A brother has fallen.";
-                break;
-                case (3):
-                failMessage.innerText = "Player was slain by Moving Square";
-                break;
-                case (4):
-                failMessage.innerText = "It's me again! Fail Screen!";
-                break;
-                default:
-                failMessage.innerText = "((MESSAGE ERROR))";
-                break;
-            }
+                    setTimeout(() => {
+                        canClick = true;
+                    }, 100);
+                }
+            } else {
+                update();
 
-            didHeDoIt.innerHTML = `You were not able to smack the target.
+                failDecider = Math.floor(Math.random() * 4 + 1);
+
+                switch (failDecider) {
+                    case (1):
+                        failMessage.innerText = "That's rough, mate!";
+                        break;
+                    case (2):
+                        failMessage.innerText = "A brother has fallen.";
+                        break;
+                    case (3):
+                        failMessage.innerText = "You were slain by Square";
+                        break;
+                    case (4):
+                        failMessage.innerText = "It's me again! Fail Screen!";
+                        break;
+                    default:
+                        failMessage.innerText = "((MESSAGE ERROR))";
+                        break;
+                }
+
+                didHeDoIt.innerHTML = `You were not able to smack the target.
             <br>
             <br>
             Getting game ready...`;
 
-            popup2.style.display = "block";
+                popup2.style.display = "block";
 
-            setTimeout(() => {
-                popup2.style.display = "none";
-                counter = 4;
-                counterHTML.innerText = counter;
-            }, 2000);
+                setTimeout(() => {
+                    popup2.style.display = "none";
+                    counter = 4;
+                    counterHTML.innerText = counter;
+                }, 2000);
 
-            target.style.backgroundColor = "initial";
-            target.attributes.death.value = "true";
+                target.style.backgroundColor = "initial";
+                target.attributes.death.value = "true";
 
-            target = null;
+                target = null;
 
-            lives = 3;
+                lives = 3;
 
-            active = false;
+                active = false;
 
-            redirectDiv.style.display = "block";
+                redirectDiv.style.display = "block";
 
-            if (different === true) {
-                updateWarningDiv.style.display = "block";
+                if (different === true) {
+                    updateWarningDiv.style.display = "block";
+                }
             }
         }
     } else if (square.attributes.death.value === "false") {
@@ -214,7 +252,7 @@ function check(square) {
                 failMessage.innerText = "GG! :)";
                 break;
                 case (2):
-                failMessage.innerText = "Ya caught dat liddle sneaky thug!";
+                failMessage.innerText = "Ya caught dat liddle thug!";
                 break;
                 case (3):
                 failMessage.innerText = "He's been told.";
@@ -226,10 +264,10 @@ function check(square) {
                 failMessage.innerText = "You like did it and stuff.";
                 break;
                 case (6):
-                failMessage.innerText = "This is one of the moments ever!";
+                failMessage.innerText = "One of the moments ever!";
                 break;
                 case (7):
-                failMessage.innerText = "I feel intimidated by your skills.";
+                failMessage.innerText = "I feel intimidated.";
                 break;
                 default:
                 failMessage.innerText = "((MESSAGE ERROR))";
@@ -259,6 +297,7 @@ function check(square) {
             active = false;
 
             redirectDiv.style.display = "block";
+            tipDiv.style.display = "block";
 
             if (different === true) {
                 updateWarningDiv.style.display = "block";
@@ -298,6 +337,7 @@ function playEvent() {
     if (rb === 1 && targetColour !== null) {
         redirectDiv.style.display = "none";
         updateWarningDiv.style.display = "none";
+        tipDiv.style.display = "none";
     }
 
     for (let q = 1; q <= j; q++) {
@@ -349,7 +389,7 @@ function playEvent() {
     if (targetColour === null) {
         popup4.style.display = "block";
     } else {
-        squareSelector = Math.floor(Math.random() * j);
+        squareSelector = Math.floor(Math.random() * j + 1);
 
         target = document.getElementById(`u${squareSelector}`);
 
@@ -362,11 +402,15 @@ function playEvent() {
 
 // told you
 play.onclick = function() {
-    playEvent();
+    if (active === false) {
+        playEvent();
+    }
 }
 
 // Submit and Play just runs the submit function and then the play function right after
 subPlay.onclick = function() {
-    subEvent();
-    playEvent();
+    if (active === false) {
+        subEvent();
+        playEvent();
+    }
 }

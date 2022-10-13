@@ -20,6 +20,8 @@ const popup5SortOf = document.getElementById("popBG5");
 
 const popup6ButWorse = document.getElementById("popBG6");
 
+const popup7 = document.getElementById("popBG7");
+
 const mainPage = document.getElementById("mainPage");
 const status = document.getElementById("status");
 
@@ -31,6 +33,9 @@ const importt = document.getElementById("importt");
 const inputImport = document.getElementById("imporInput");
 
 inputImport.style.opacity = 0;
+
+const tipDiv = document.getElementById("tipClick");
+const tipMessage = document.getElementById("leMessage");
 
 // if you were using firefox, the export button would display incorrectly, so i added this fix
 // just don't ask me to explain the firefox variable
@@ -68,6 +73,7 @@ function disappear() {
     popup4.style.display = "none";
     popup5SortOf.style.display = "none";
     popup6ButWorse.style.display = "none";
+    popup7.style.display = "none";
 
     if (firefox === false) {
         innerPopup.innerHTML = `<img src="assets/exit.png" id="exit" onclick="disappear();">
@@ -157,4 +163,37 @@ Try comparing it with this example:
     if (file) {
         reader.readAsText(file);
     }
+}
+
+// tip system
+let tipMessageRNG = null;
+
+tipDiv.onclick = function() {
+    tipMessageRNG = Math.floor(Math.random() * 7 + 1);
+
+    switch (tipMessageRNG) {
+        case 1:
+            tipMessage.innerHTML = "Fast clicking not registering? Try disabling <strong>Patch Out Double Clicks</strong> in settings!";
+            break;
+        case 2:
+            tipMessage.innerHTML = "Do you keep accidentally clicking this popup? Enable <strong>Block Redirects During Play</strong> in settings!";
+            break;
+        case 3:
+            tipMessage.innerHTML = "A strange but popular strategy is to spam at the target and get lucky. The people who use it want more lives to be added.";
+            break;
+        case 4:
+            tipMessage.innerHTML = "If your mouse has <strong>Debounce Time</strong>, you can set it to the highest number to reduce Double Clicks!";
+            break;
+        case 5:
+            tipMessage.innerHTML = "Too easy for you? Set the Speed to 50 and the Dimensions to 15 and try that. It took me 4 tries to pull off.";
+            break;
+        case 6:
+            tipMessage.innerHTML = "If you're on PC, try moving your mouse on a smooth surface. I used to have to use my bumpy kitchen table.";
+            break;
+        case 7:
+            tipMessage.innerHTML = "Set the target colour to rgb(89, 89, 89) to make it invisible. You can also enable <strong>Grid Colour Match With Target</strong> to make the grid invisible!";
+            break;
+    }
+
+    popup7.style.display = "block";
 }

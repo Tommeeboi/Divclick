@@ -47,3 +47,13 @@ Beta v0.6 (10/10/2022):
 3. When Block Redirects During Play is active, clicking Play without submitting no longer removes the redirects
 4. The number inputs no longer have the stupid arrows >:)
 5. Bugfixes and improvements (I know, shocking)
+
+Beta v0.7 (13/10/2022):
+
+1. Added a new system to prevent double clicks
+2. The Target no longer has a small chance of failing to spawn (i think)
+3. Death and Victory messages no longer take up 2 lines
+4. You can no longer Submit or Play while the game is running
+5. Added changes to the Tutorial to make it clearer
+6. Added a new tips feature
+7. Bugfixes and improvements
